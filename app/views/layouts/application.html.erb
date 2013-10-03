@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>JacobBlog</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+		<title>JacobBlog</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<header>
+			<nav class="sixteen columns">
+				<h1 class="left">
+					Jacob's Blog
+				</h1>
+				<ul class="right">
+					<li>
+						<%= link_to "Home", "#"%>
+					</li>
+					<li>
+						<%= link_to "About", "#" %>
+					</li>
+					<li>
+						<%= link_to "Resources", "#" %>
+					</li>
+					<li>
+						<%= link_to "Archive", "#" %>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
-<%= yield %>
+		<%= yield %>
 
-</body>
+	</body>
 </html>
