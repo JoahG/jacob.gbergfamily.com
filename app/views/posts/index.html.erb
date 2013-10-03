@@ -1,2 +1,10 @@
 <h1>Welcome</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="posts index">
+	<ul class="posts list">
+		<% @posts.each do |post| %>
+			<li class="posts list-item">
+				<%= post.title %>
+			</li>
+		<% end %>
+	</ul>
+</div>
