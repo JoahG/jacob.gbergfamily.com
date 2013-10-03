@@ -8,28 +8,42 @@
 	</head>
 	<body>
 		<header>
-			<nav class="sixteen columns">
-				<h1 class="left">
-					Jacob's Blog
-				</h1>
-				<ul class="right">
-					<li>
-						<%= link_to "Home", "#"%>
-					</li>
-					<li>
-						<%= link_to "About", "#" %>
-					</li>
-					<li>
-						<%= link_to "Resources", "#" %>
-					</li>
-					<li>
-						<%= link_to "Archive", "#" %>
-					</li>
-				</ul>
-			</nav>
+			<div class="container">
+				<nav class="sixteen columns">
+					<div class="five columns">
+						<h1 class="left">
+							Jacob's Blog
+						</h1>
+					</div>
+					<div class="ten columns">
+						<ul class="right">
+							<li>
+								<%= link_to "Home", "#"%>
+							</li>
+							<li>
+								<%= link_to "About", "#" %>
+							</li>
+							<li>
+								<%= link_to "Resources", "#" %>
+							</li>
+							<li>
+								<%= link_to "Archive", "#" %>
+							</li>
+						</ul>
+				</nav>
+			</div>
 		</header>
 
-		<%= yield %>
+
+		<hr>
+
+		<div class="container">
+			<div class="sixteen columns">
+				<div class="half centered">
+					<%= yield %>
+				</div>
+			</div>
+		</div>
 
 	</body>
 </html>
