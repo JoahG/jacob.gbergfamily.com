@@ -4,7 +4,17 @@
 <h2 class="posts show title"><%= @post.title %></h2>
 <section class="posts show meta">
 	<span class="posts show author">by <%= @post.user.name %></span>
-	<span class="posts show date">on <%= @post.created_at.strftime("%m/%d/%Y") %></span>
+	<span class="posts show date">on <%= @post.created_at.strftime("%m/%d/%Y") %></span><br>
+<!-- 	<section class="tags"> -->
+		<%= link_to type_path(@post.post_type), :class => "tag" do %>
+			<%= @post.post_type %>
+		<% end %>
+		<% @post.tag_list.each do |tag| %>
+			<%= link_to tag_path(tag), :class => "tag" do %>
+				<%= tag %>
+			<% end %>
+		<% end %>
+<!-- 	</section> -->
 </section>
 <hr>
 <div class="posts show content">

@@ -1,6 +1,13 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.all
+		if params[:tag]
+			@posts = Post.tagged_with(params[:tag])
+		elsif params[:type]
+			@posts = Post.all.select{|p| p.post_type == params[:type]}
+		else
+			@posts = Post.all
+		end
+		
 		respond_to do |f|
 			f.html
 			f.js

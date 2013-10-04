@@ -1,4 +1,12 @@
-<h1>Welcome</h1>
+<h1>
+	<% if params[:type] %>
+		Listing all <%= params[:type] + "s" %>
+	<% elsif params[:tag] %>
+		Posts tagged with "<%= params[:tag] %>"
+	<% else %>
+		Welcome
+	<% end %>
+</h1>
 <div class="posts index">
 	<ul class="posts list">
 		<% @posts.each do |post| %>
