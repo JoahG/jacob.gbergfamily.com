@@ -1,0 +1,7 @@
+<h1> About Me </h1>
+<hr>
+<h2 class="about name"> <%= @user.name %> </h2><br>
+<img src='<%=@user.gravatar_url%>' class="about image">
+<p class="about text">
+	<%= @user.about %>
+</p>

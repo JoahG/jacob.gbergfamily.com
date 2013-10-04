@@ -1,0 +1,29 @@
+<h1 class="form"> Admin </h1>
+
+<hr>
+
+<%= link_to "Edit About Me Text", edit_user_path(@user) %>
+
+<hr>
+
+<h3>Posts:</h3>
+<ul>
+	<li>
+		<%= link_to "New Post", new_post_path %>
+	</li>
+	<% @posts.each do |post| %>
+		<li><%= link_to post.title, post %> - <%= link_to "Edit", edit_post_path(post) %> | <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+	<% end %>
+</ul>
+
+<hr>
+
+<h3>Resources:</h3>
+<ul>
+	<li>
+		<%= link_to "New Resource", new_resource_path %>
+	</li>
+	<% @resources.each do |r| %>
+		<li><%= link_to r.url, r.url %> - <%= link_to "Edit", edit_resource_path(r) %> | <%= link_to 'Delete', r, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+	<% end %>
+</ul>

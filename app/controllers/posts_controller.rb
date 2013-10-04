@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+	before_filter :check_admin, :only => [:new, :create, :edit, :update, :admin, :destroy]
+
 	def index
 		if params[:tag]
 			@posts = Post.tagged_with(params[:tag]).reverse
@@ -41,12 +43,19 @@ class PostsController < ApplicationController
 		end
 	end
 
-	def resources
-	end
-
 	def about
+		@user = User.find(1)
 	end
 
 	def admin
+		@posts = Post.all.reverse
+		@resources = Resource.all
+		@user = User.find(1)
+	end
+
+	def destroy
+		@post = Post.find(params[:id])
+		@post.destroy
+		redirect_to root_url
 	end
 end

@@ -16,6 +16,21 @@ div.half {
 	display:none;
 }
 
+ul.lst {
+	list-style-type: disc;
+	margin-left: 20px;
+}
+
+form, .form {
+	input[type="text"], input[type="password"], input[type="email"], textarea, select {
+		display: inline-block;
+	}
+	textarea {
+		width: 100%;
+	}
+	text-align: center;
+}
+
 header {
 	margin-top: 20px;
 	nav {
@@ -104,6 +119,17 @@ header {
 		&.video {
 			
 		}
+	}
+}
+
+.about {
+	&.image {
+		display: inline-block;
+		vertical-align: top;
+	}
+	&.text {
+		display: inline-block;
+		margin-left: 30px
 	}
 }
 
