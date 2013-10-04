@@ -4,6 +4,9 @@ class PostsController < ApplicationController
 			@posts = Post.tagged_with(params[:tag]).reverse
 		elsif params[:type]
 			@posts = Post.all.select{|p| p.post_type == params[:type]}.reverse
+		elsif params[:archive]
+			@posts = Post.all.reverse
+			@archive = params[:archive]
 		else
 			@posts = Post.all.reverse[0..15]
 		end
@@ -36,10 +39,6 @@ class PostsController < ApplicationController
 			f.html
 			f.js
 		end
-	end
-
-	def archive
-		@posts = Post.all.reverse
 	end
 
 	def resources

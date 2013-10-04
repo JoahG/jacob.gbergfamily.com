@@ -3,6 +3,8 @@
 		Listing all <%= params[:type] + "s" %>
 	<% elsif params[:tag] %>
 		Posts tagged with "<%= params[:tag] %>"
+	<% elsif @archive %>
+		Archive
 	<% else %>
 		Welcome
 	<% end %>
@@ -12,7 +14,7 @@
 		<% @posts.each do |post| %>
 			<hr>
 			<li class="posts list-item">
-				<%= link_to post.title, post, :class => "show-link", :remote => true %>
+				<%= link_to post.title, post, :class => "show-link", :remote => (not @archive ? true : false) %>
 				<span class="posts author">by <%= post.user.name %></span>
 				<span class="posts date">on <%= post.created_at.strftime("%m/%d/%Y") %></span>
 				<section class="tags">
@@ -28,7 +30,7 @@
 			</li>
 		<% end %>
 		<hr>
-		<% if !params[:tag] and !params[:type] %>
+		<% if !params[:tag] and !params[:type] and !@archive %>
 			<li class="posts list-item">
 				<%= link_to archive_url, :class => "show-link" do %>
 					 Archive &raquo;
