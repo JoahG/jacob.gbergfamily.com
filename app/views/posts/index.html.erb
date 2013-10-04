@@ -5,8 +5,10 @@
 		Posts tagged with "<%= params[:tag] %>"
 	<% elsif @archive %>
 		Archive
+		<% @title = "Archive" %>
 	<% else %>
 		Welcome
+		<% @title = "Welcome" %>
 	<% end %>
 </h1>
 <div class="posts index">
