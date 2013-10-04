@@ -7,23 +7,29 @@ class PostsController < ApplicationController
 		else
 			@posts = Post.all
 		end
-		
-		respond_to do |f|
-			f.html
-			f.js
-		end
+
+		@posts = @posts.reverse
 	end
 
 	def new
+		@post = Post.new
 	end
 
 	def create
+		@post = Post.new(params[:post])
+		@post.save
+		redirect_to root_url
 	end
 
 	def edit
+		@post = Post.find(params[:id])
 	end
 
 	def update
+		@post = Post.find(params[:id])
+		@post.update_attributes(params[:post])
+		@post.save
+		redirect_to root_url
 	end
 
 	def show

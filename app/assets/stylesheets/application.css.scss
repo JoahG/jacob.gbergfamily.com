@@ -12,9 +12,16 @@ div.half {
 	width: 75%;
 }
 
+.hidden {
+	display:none;
+}
+
 header {
 	margin-top: 20px;
 	nav {
+		a {
+			text-decoration: none;
+		}
 		ul {
 			margin-top: 15px;
 
@@ -33,7 +40,6 @@ header {
 
 .posts {
 	&.index {
-		width: 90%;
 		margin:auto;
 		.list {
 			hr {
@@ -82,6 +88,20 @@ header {
 				height: 20px;
 			}
 		}
+		&.link {
+			.link {
+				text-align: center;
+				h2 {
+					color: #333;
+				}
+				&:hover {
+					h2 {
+
+					color: #000
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -108,7 +128,7 @@ header {
 		padding: 40px;
 		left: 0;
 		right: 0;
-		margin: 30% auto auto auto;
+		margin: 15% auto auto auto;
 		.permalink {
 			position: absolute;
 			top:0;

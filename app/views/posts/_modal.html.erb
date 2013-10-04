@@ -5,18 +5,32 @@
 <section class="posts show meta">
 	<span class="posts show author">by <%= @post.user.name %></span>
 	<span class="posts show date">on <%= @post.created_at.strftime("%m/%d/%Y") %></span><br>
-<!-- 	<section class="tags"> -->
-		<%= link_to type_path(@post.post_type), :class => "tag" do %>
-			<%= @post.post_type %>
+	<%= link_to type_path(@post.post_type), :class => "tag" do %>
+		<%= @post.post_type %>
+	<% end %>
+	<% @post.tag_list.each do |tag| %>
+		<%= link_to tag_path(tag), :class => "tag" do %>
+			<%= tag %>
 		<% end %>
-		<% @post.tag_list.each do |tag| %>
-			<%= link_to tag_path(tag), :class => "tag" do %>
-				<%= tag %>
-			<% end %>
-		<% end %>
-<!-- 	</section> -->
+	<% end %>
 </section>
+
 <hr>
-<div class="posts show content">
-	<%= @post.content %>
+
+
+<div class="posts show body <%= @post.post_type %>">
+	<p class="content">
+		<%= @post.content %>
+	</p>
+	<% if @post.post_type == "video" %>
+		<%= raw @post.html %>
+		<script>
+			$(".posts.show.video iframe").height(($(".posts.show.video iframe").width / $(".posts.show.video iframe").height) * 634)
+			$(".posts.show.video iframe").width(634)
+		</script>
+	<% elsif @post.post_type == "link" %>
+		<%= link_to @post.url, :class => "posts show link" do %>
+			<h2><%= @post.url %></h2>
+		<% end %>
+	<% end %>
 </div>

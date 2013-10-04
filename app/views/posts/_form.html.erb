@@ -1,0 +1,32 @@
+<%= form_for @post do |f| %>
+	<%= f.label :post_type %>
+	<%= f.select :post_type, options_for_select([
+		['Article', 'article'],
+		['Video', 'video'],
+		['Link', 'link']],
+		(if @post.post_type
+			@post.post_type
+		else
+			'article'
+		end)
+	) %> <br>
+
+	<%= f.label :title %>
+	<%= f.text_field :title %> <br>
+
+	<%= f.label :tag_list, "Tags (separate by commas)" %>
+	<%= f.text_field :tag_list %> <br>
+
+	<%= f.label :content, "Content (Intro/Main Text)" %>
+	<%= f.text_area :content %> <br>
+
+	<%= f.label :html, "Paste YouTube HTML", :data => {"show-on" => "video"}, :class => 'hidden' %>
+	<%= f.text_area :html, :data => {"show-on" => "video"}, :class => 'hidden' %>
+
+	<%= f.label :url, :data => {"show-on" => "link"}, :class => 'hidden' %>
+	<%= f.text_field :url, :data => {"show-on" => "link"}, :class => 'hidden' %>
+
+	<%= f.hidden_field :user_id, :value => 1 %>
+
+	<%= f.submit %>
+<% end %>
