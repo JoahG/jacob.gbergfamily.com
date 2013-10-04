@@ -4,7 +4,7 @@
 		<% @posts.each do |post| %>
 			<hr>
 			<li class="posts list-item">
-				<%= link_to post.title, post, :class => "show" %>
+				<%= link_to post.title, post, :class => "show-link", :remote => true %>
 				<span class="posts author">by <%= post.user.name %></span>
 				<span class="posts date">on <%= post.created_at.strftime("%m/%d/%Y") %></span>
 				<section class="tags">

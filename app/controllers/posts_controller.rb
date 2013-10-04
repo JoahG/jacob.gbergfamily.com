@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
 	def index
 		@posts = Post.all
+		respond_to do |f|
+			f.html
+			f.js
+		end
 	end
 
 	def new
@@ -16,5 +20,10 @@ class PostsController < ApplicationController
 	end
 
 	def show
+		@post = Post.find(params[:id])
+		respond_to do |f|
+			f.html
+			f.js
+		end
 	end
 end

@@ -1,0 +1,12 @@
+<% if modal %>
+	<%= link_to "permalink", @post, :class => "posts show permalink" %>
+<% end %>
+<h2 class="posts show title"><%= @post.title %></h2>
+<section class="posts show meta">
+	<span class="posts show author">by <%= @post.user.name %></span>
+	<span class="posts show date">on <%= @post.created_at.strftime("%m/%d/%Y") %></span>
+</section>
+<hr>
+<div class="posts show content">
+	<%= @post.content %>
+</div>
