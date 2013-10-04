@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
 	before_filter :check_admin, :only => [:edit, :update]
 
-	def new
-		@user = User.new
-	end
+	# def new
+	# 	@user = User.new
+	# end
 
-	def create
-		@user = User.new(params[:user])
-		@user.save
-		redirect_to root_url
-	end
+	# def create
+	# 	@user = User.new(params[:user])
+	# 	@user.save
+	# 	redirect_to root_url
+	# end
 
 	def edit
 		@user = User.find(params[:id])
