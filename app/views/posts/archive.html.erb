@@ -1,18 +1,12 @@
 <h1>
-	<% if params[:type] %>
-		Listing all <%= params[:type] + "s" %>
-	<% elsif params[:tag] %>
-		Posts tagged with "<%= params[:tag] %>"
-	<% else %>
-		Welcome
-	<% end %>
+	Archive
 </h1>
 <div class="posts index">
 	<ul class="posts list">
 		<% @posts.each do |post| %>
 			<hr>
 			<li class="posts list-item">
-				<%= link_to post.title, post, :class => "show-link", :remote => true %>
+				<%= link_to post.title, post, :class => "show-link" %>
 				<span class="posts author">by <%= post.user.name %></span>
 				<span class="posts date">on <%= post.created_at.strftime("%m/%d/%Y") %></span>
 				<section class="tags">
@@ -28,13 +22,5 @@
 			</li>
 		<% end %>
 		<hr>
-		<% if !params[:tag] and !params[:type] %>
-			<li class="posts list-item">
-				<%= link_to archive_url, :class => "show-link" do %>
-					 Archive &raquo;
-				<% end %>
-			</li>
-			<hr>
-		<% end %>
 	</ul>
 </div>

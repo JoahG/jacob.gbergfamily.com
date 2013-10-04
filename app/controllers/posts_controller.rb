@@ -1,14 +1,12 @@
 class PostsController < ApplicationController
 	def index
 		if params[:tag]
-			@posts = Post.tagged_with(params[:tag])
+			@posts = Post.tagged_with(params[:tag]).reverse
 		elsif params[:type]
-			@posts = Post.all.select{|p| p.post_type == params[:type]}
+			@posts = Post.all.select{|p| p.post_type == params[:type]}.reverse
 		else
-			@posts = Post.all
+			@posts = Post.all.reverse[0..15]
 		end
-
-		@posts = @posts.reverse
 	end
 
 	def new
@@ -38,5 +36,18 @@ class PostsController < ApplicationController
 			f.html
 			f.js
 		end
+	end
+
+	def archive
+		@posts = Post.all.reverse
+	end
+
+	def resources
+	end
+
+	def about
+	end
+
+	def admin
 	end
 end
