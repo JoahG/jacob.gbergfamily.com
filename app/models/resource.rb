@@ -1,3 +1,3 @@
 class Resource < ActiveRecord::Base
-  attr_accessible :url
+	attr_accessible :url
 end
