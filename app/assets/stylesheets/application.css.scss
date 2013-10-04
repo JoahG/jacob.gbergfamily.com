@@ -130,7 +130,9 @@ header {
 		padding: 40px;
 		left: 0;
 		right: 0;
-		margin: 15% auto auto auto;
+		margin: 15% auto 15% auto;
+		max-height: 70%;
+		overflow-y: scroll;
 		.permalink {
 			position: absolute;
 			top:0;
