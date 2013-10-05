@@ -21,11 +21,11 @@
 				<span class="posts date">on <%= post.created_at.strftime("%m/%d/%Y") %></span>
 				<section class="tags">
 					<%= link_to type_path(post.post_type), :class => "tag" do %>
-						<%= post.post_type %>
+						<%= post.post_type.capitalize %>
 					<% end %>
 					<% post.tag_list.each do |tag| %>
 						<%= link_to tag_path(tag), :class => "tag" do %>
-							<%= tag %>
+							<%= tag.capitalize %>
 						<% end %>
 					<% end %>
 				</section>
