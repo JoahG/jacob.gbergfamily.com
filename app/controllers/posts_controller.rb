@@ -43,10 +43,6 @@ class PostsController < ApplicationController
 		end
 	end
 
-	def about
-		@user = User.find(1)
-	end
-
 	def admin
 		@posts = Post.all.reverse
 		@resources = Resource.all
