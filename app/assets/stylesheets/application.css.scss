@@ -149,7 +149,7 @@ header {
 		cursor: pointer;
 	}
 	&.body {
-		position: absolute;
+		position: fixed;
 		background-color: white;
 		border-radius: 30px;
 		width: 50%;
