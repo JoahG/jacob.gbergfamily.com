@@ -1,0 +1,8 @@
+<%= link_to type_path(post.post_type), :class => "tag" do %>
+	<%= post.post_type.split.map(&:capitalize).join(' ') %>
+<% end %>
+<% post.tag_list.each do |tag| %>
+	<%= link_to tag_path(tag), :class => "tag" do %>
+		<%= tag.split.map(&:capitalize).join(' ') %>
+	<% end %>
+<% end %>
