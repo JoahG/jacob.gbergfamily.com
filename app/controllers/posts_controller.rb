@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 	before_filter :check_admin, :only => [:new, :create, :edit, :update, :admin, :destroy]
+	impressionist :actions=>[:show]
 
 	def index
 		if params[:tag]

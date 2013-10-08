@@ -17,3 +17,4 @@ gem 'rails_12factor'
 gem 'acts-as-taggable-on'
 gem 'bcrypt-ruby'
 gem 'gravtastic'
+gem "impressionist"
